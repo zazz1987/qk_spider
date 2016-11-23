@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from unittest import TestCase
 from app.datasource.pengyuan.transform import *
+from app import create_app
 import json
 
 
