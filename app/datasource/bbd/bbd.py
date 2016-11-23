@@ -68,7 +68,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_qyxx_gdxx(cls, company=None, qyxx_id=None, page=None, page_size=None, start=None, end=None):
+    def query_qyxx_gdxx(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
         """
         股东信息API查询
         :param company: 企业名称，精确匹配(key)
@@ -128,7 +128,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_qyxx_nb(cls, company=None, qyxx_id=None, detail=None):
+    def query_qyxx_nb(cls, company=None, detail=None, qyxx_id=None):
         """
         企业年报
         :param company: 企业名称，精确匹配(key)
@@ -172,7 +172,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_zhixing(cls, company=None, qyxx_id=None, page_size=None):
+    def query_zhixing(cls, company=None, page_size=None, qyxx_id=None):
         """
         被执行人
         :param company: 企业名称，精确匹配(key)
@@ -187,7 +187,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_ktgg(cls, company=None, qyxx_id=None, page_size=None):
+    def query_ktgg(cls, company=None, page_size=None, qyxx_id=None):
         """
         开庭公告
         :param company: 企业名称，精确匹配(key)
@@ -216,7 +216,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_rmfygg(cls, company=None, qyxx_id=None, page_size=None):
+    def query_rmfygg(cls, company=None, page_size=None, qyxx_id=None):
         """
         人民法院公告
         :param company: 企业名称，精确匹配(key)
@@ -259,7 +259,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_domain_name_website_info(cls, company=None, qyxx_id=None, page_size=None):
+    def query_domain_name_website_info(cls, company=None, page_size=None, qyxx_id=None):
         """
         域名备案
         :param company: 企业名称，精确匹配(key)
@@ -288,7 +288,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_qyxg_jyyc(cls, company=None, qyxx_id=None, page_size=None):
+    def query_qyxg_jyyc(cls, company=None, page_size=None, qyxx_id=None):
         """
         经营异常
         :param company: 企业名称，精确匹配(key)
@@ -317,7 +317,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_ent_copyrights(cls, company=None, qyxx_id=None, page_size=None):
+    def query_ent_copyrights(cls, company=None, page_size=None, qyxx_id=None):
         """
         企业作品著作权
         :param company: 企业名称，精确匹配(key)
@@ -346,7 +346,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_recruit(cls, company=None, qyxx_id=None, page_size=None):
+    def query_recruit(cls, company=None, page_size=None, qyxx_id=None):
         """
         企业招聘数据
         :param company: 企业名称，精确匹配(key)
@@ -361,7 +361,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_bidinviting(cls, company=None, qyxx_id=None, page_size=None):
+    def query_bidinviting(cls, company=None, page_size=None, qyxx_id=None):
         """
         招标数据
         :param company: 企业名称，精确匹配(key)
@@ -376,7 +376,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_bidwinner(cls, company=None, qyxx_id=None, page_size=None):
+    def query_bidwinner(cls, company=None, page_size=None, qyxx_id=None):
         """
         中标数据
         :param company: 企业名称，精确匹配(key)
@@ -391,7 +391,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_overseasinv(cls, company=None, qyxx_id=None, page_size=None):
+    def query_overseasinv(cls, company=None, page_size=None, qyxx_id=None):
         """
         境外投资
         :param company: 企业名称，精确匹配(key)
@@ -420,7 +420,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_licence_pros(cls, company=None, qyxx_id=None, page_size=None):
+    def query_licence_pros(cls, company=None, page_size=None, qyxx_id=None):
         """
         探矿许可
         :param company: 企业名称，精确匹配(key)
@@ -435,7 +435,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_qua_comm_cons(cls, company=None, qyxx_id=None, page_size=None):
+    def query_qua_comm_cons(cls, company=None, page_size=None, qyxx_id=None):
         """
         通信建设资质
         :param company: 企业名称，精确匹配(key)
@@ -478,7 +478,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_qua_itsys_sup(cls, company=None, qyxx_id=None, page_size=None):
+    def query_qua_itsys_sup(cls, company=None, page_size=None, qyxx_id=None):
         """
         信息系统工程监理资质
         :param company: 企业名称，精确匹配(key)
@@ -493,7 +493,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_cert_soft_ent_pro(cls, company=None, qyxx_id=None, page_size=None):
+    def query_cert_soft_ent_pro(cls, company=None, page_size=None, qyxx_id=None):
         """
         双软认证
         :param company: 企业名称，精确匹配(key)
@@ -536,7 +536,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_licence_food_pro(cls, company=None, qyxx_id=None, page_size=None):
+    def query_licence_food_pro(cls, company=None, page_size=None, qyxx_id=None):
         """
         食品生产许可
         :param company: 企业名称，精确匹配(key)
@@ -551,7 +551,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_licence_medi_pro(cls, company=None, qyxx_id=None, page_size=None):
+    def query_licence_medi_pro(cls, company=None, page_size=None, qyxx_id=None):
         """
         企业药品生产许可证
         :param company: 企业名称，精确匹配(key)
@@ -566,7 +566,7 @@ class BBD(Third):
         return result
 
     @classmethod
-    def query_licence_medi_oper(cls, company=None, qyxx_id=None, page_size=None):
+    def query_licence_medi_oper(cls, company=None, page_size=None, qyxx_id=None):
         """
         药品经营许可证
         :param company: 企业名称，精确匹配(key)
