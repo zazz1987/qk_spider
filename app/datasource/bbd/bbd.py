@@ -47,9 +47,11 @@ class BBD(Third):
             try:
                 data = result.get_nowait()
                 if data:
-                    result_final.append(data)
+                    result_final.append(data.text)
             except queue.Empty:
                 break
+        for a in result_final:
+            print(a)
         return result_final, BBD.source
 
     @classmethod
@@ -81,7 +83,7 @@ class BBD(Third):
         """
         url = 'http://dataom.api.bbdservice.com/api/bbd_qyxx_gdxx/'
         kwargs = params_to_dict(1)
-        kwargs['ak'] = '91718c463d479eeb5bcf41b8bac114'
+        kwargs['ak'] = '91718c463d479eeb5bcf41b8bac1146c'
         result = requests.get(url=url, params=kwargs)
         return result
 
@@ -144,6 +146,7 @@ class BBD(Third):
 
     @classmethod
     def query_rel(cls, company=None, qyxx_id=None):
+        # TODO: 没有找到文档
         """
         关联方
         :param company: 企业名称，精确匹配(key)
