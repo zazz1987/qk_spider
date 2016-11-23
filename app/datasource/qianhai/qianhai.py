@@ -1,4 +1,7 @@
+import base64
 import json
+import random
+import string
 import sys
 import os
 from datetime import datetime
@@ -38,30 +41,31 @@ class QianHai(Third):
 
     @staticmethod
     def format_json_header():
-        transNo = datetime.now().strftime('qkjr_%Y%m%d%s')
-        transDate = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        trans_no = datetime.now().strftime('%Y%m%d%S') + \
+                  ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(14))
+        trans_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         header = r'"header":{{' \
                  r'"orgCode": "{orgCode}", ' \
                  r'"chnlId": "{chnlId}",' \
-                 r'"transNo": "{transNo}",' \
-                 r'"transDate": "{transDate}",' \
+                 r'"transNo": "{trans_no}",' \
+                 r'"transDate": "{trans_date}",' \
                  r'"authCode": "{authCode}",' \
                  r'"authDate": "{authDate}"}}'.format(orgCode=QianHai.org_code,
                                                       chnlId=QianHai.chnl_id,
-                                                      transNo=transNo,
-                                                      transDate=transDate,
+                                                      transNo=trans_no,
+                                                      transDate=trans_date,
                                                       authCode=QianHai.auth_code,
-                                                      authDate=transDate)
+                                                      authDate=trans_date)
         return header
 
     @staticmethod
-    def format_json_enc_busi_data(*args, **kwargs):
+    def format_json_enc_busi_data(**kwargs):
         origin_bus_data = r'{{' \
                           r'"batchNo": "{batchNo}",' \
-                          r'"records":[' \
+                          r'"records":[{{' \
                           r'"idNo": "{personal_id}",' \
-                          r'"idTpye": "0",' \
+                          r'"idType": "0",' \
                           r'"name": "{user_name_cn}",' \
                           r'"mobileNo": "{mobile_num}",' \
                           r'"cardNo": "{card_id}",' \
@@ -76,7 +80,7 @@ class QianHai(Third):
                           r'"yhdNo": "{yhd_id}",' \
                           r'"entityAuthCode": "{auth_code}",' \
                           r'"entityAuthDate": "{auth_date}",' \
-                          r'"seqNo": "{seq_no}"]' \
+                          r'"seqNo": "{seq_no}"}}]' \
                           r'}}'.format_map(SafeSub(kwargs))
         enc_busi_data = DataSecurityUtil.encrypt(origin_bus_data.encode(), QianHai.check_sum)
         return enc_busi_data
@@ -102,10 +106,8 @@ class QianHai(Third):
     def __format_json_xhd(self, *args, **kwargs):
         pass
 
-    def send_json_with_https(self, surl, json):
-        headers = self.headers
-        json_request = json
-        result = requests.post(surl,
-                               json=json_request,
-                               headers=QianHai.headers)
+    @staticmethod
+    def send_json_with_https(surl, json_str):
+        j = json.loads(json_str)
+        result = requests.post(surl, json=j, headers=QianHai.headers)
         return result
