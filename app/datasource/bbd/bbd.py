@@ -47,9 +47,11 @@ class BBD(Third):
             try:
                 data = result.get_nowait()
                 if data:
-                    result_final.append(data)
+                    result_final.append(data.text)
             except queue.Empty:
                 break
+        for a in result_final:
+            print(a)
         return result_final, BBD.source
 
     @classmethod
