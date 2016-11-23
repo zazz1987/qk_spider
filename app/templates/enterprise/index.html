@@ -17,21 +17,32 @@
     <link rel="stylesheet" href="/static/material/theme/chacha/cms/v2/css/font-awesome.min.css"
 
           type="text/css"/>
+    <!--<link rel="stylesheet" href="/static/material/theme/chacha/cms/v2/css/bgStyle.css"-->
+    <!--type="text/css"/>-->
     <link rel="stylesheet" href="/static/material/theme/chacha/cms/v2/css/icon.css"
           type="text/css"/>
     <link rel="stylesheet" href="/static/material/theme/chacha/cms/v2/css/font.css"
           type="text/css"/>
     <link rel="stylesheet" href="/static/material/theme/chacha/cms/v2/css/app.css-v=120.css"
           type="text/css"/>
+
     <!--[if lt IE 9]>
-    <script src="../mos.meituan.com/media/lib/html5shiv.js" ></script>
-    <script src="../mos.meituan.com/media/lib/respond.js" ></script>
+    <script src="../mos.meituan.com/media/lib/html5shiv.js"></script>
+    <script src="../mos.meituan.com/media/lib/respond.js"></script>
     <![endif]-->
     <script type="text/javascript" src="/static/material/js/siteconfig.js"
     ></script>
     <script src="/static/material/theme/chacha/cms/v2/js/jquery.min.js"
     ></script>
+    <script type="text/javascript" src="/static/material/theme/chacha/cms/v2/js/parallax.min.js"></script>
+
+    <!-- 加载前 动画 -->
+    <script type="text/javascript" src="/static/material/theme/chacha/cms/v2/js/royal_preloader.min.js"></script>
+
+
     <script type="text/javascript" src="/static/material/theme/chacha/cms/v2/js/jquery.scrollTo.min.js"
+    ></script>
+    <script type="text/javascript" src="/static/material/theme/chacha/cms/v2/js/index.js"
     ></script>
     <link rel="stylesheet" href="/static/material/theme/chacha/cms/v2/css/toastr.css"
     />
@@ -42,6 +53,13 @@
             type="text/javascript"></script>
     <script src="/static/material/theme/chacha/cms/v2/js/custom.js-time=20160927.js"
     ></script>
+    <script type="text/javascript">
+        Royal_Preloader.config({
+            mode: 'number',
+            showProgress: false,
+            background: '#1d1d1d'
+        });
+    </script>
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
@@ -66,7 +84,7 @@
             <a href="index.htm" class="navbar-brand"> <img
                     src="/static/material/theme/chacha/cms/v2/images/logo4.png"
 
-                    class="m-r-sm" alt="企查查"> </a> <a class="btn btn-link visible-xs" href="user_login.htm"
+                    class="m-r-sm" alt="快信"> </a> <a class="btn btn-link visible-xs" href="user_login.htm"
             > <i
                     class="fa fa-user"></i> </a></div>
         <ul class="nav navbar-nav collapse navbar-collapse" id="bs-navbar">
@@ -118,75 +136,79 @@
                 </section>
             </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right hidden-xs m-t-xs">
-            <li>
-                <div class="m-t-sm"><a href="user_login.htm"
-                                       class="btn btn-link btn-sm text-md">登录</a> 或 <a href="user_register.htm"
-
-                                                                                       class="btn btn-sm btn-success btn-rounded m-l  text-md"><strong>免费注册</strong></a>
-                </div>
-            </li>
-        </ul>
     </div>
 </header>
-<section id="search">
-    <div class="intro">
-        <div class="row">
-            <div class="container">
-                <div class="col-md-12"><h1 class="text-center heading m-b-lg text-white">
-                    查企业，就上企查查！
-                </h1>
-                    <div class="col-md-9 col-md-offset-1">
-                        <div class="search-nav hidden-xs">
-                            <ul>
-                                <li class="search-type active">全部</li>
-                                <li> |</li>
-                                <li class="search-type">企业名</li>
-                                <li> |</li>
-                                <li class="search-type">法人/股东</li>
-                                <li> |</li>
-                                <li class="search-type">高管</li>
-                                <li> |</li>
-                                <li class="search-type">品牌/产品</li>
-                                <li> |</li>
-                                <li class="search-type">联系方式</li>
-                                <li> |</li>
-                                <li class="search-type"> 经营范围</li>
-                            </ul>
-                        </div>
-                        <div class="clearfix"></div>
-                        <form action="http://www.qichacha.com/search">
-                            <div class="input-group"><input type="text" value="" id="searchkey" autocomplete="off"
-                                                            placeholder="请输入企业名称、人名，产品名等，多关键词用空格隔开，如“小米 雷军”" name="key"
-                                                            class="form-control input-lg" required="required"
-                                                            onkeydown="searchKeydown(event,1);"> <input type="hidden"
-                                                                                                        id="index"
-                                                                                                        name="index"
-                                                                                                        value="0"/>
-                                <span class="input-group-btn"> <input type="submit"
-                                                                      class="button btn btn-success btn-lg" value="查一下"> </span>
+<div class="jumbotron jumbotron-main" id="home"
+     style="background: #3498db;">
+    <div id="particles-js"></div><!-- /.particles div -->
+    <!-- 更换自己需要的上浮显示内容 -->
+    <div class="container center-vertically-holder">
+        <section id="search">
+            <div class="intro">
+                <div class="row">
+                    <div class="container">
+                        <div class="col-md-12"><h1 class="text-center heading m-b-lg text-white"
+                                                   style="color: white;margin-right: 8.3333%">
+                            查企业，就上快信!
+                        </h1>
+                            <div class="col-md-9 col-md-offset-1">
+                                <div class="search-nav hidden-xs">
+                                    <ul>
+                                        <li class="search-type active">全部</li>
+                                        <li> |</li>
+                                        <li class="search-type">企业名</li>
+                                        <li> |</li>
+                                        <li class="search-type">法人/股东</li>
+                                        <li> |</li>
+                                        <li class="search-type">高管</li>
+                                        <li> |</li>
+                                        <li class="search-type">品牌/产品</li>
+                                        <li> |</li>
+                                        <li class="search-type">联系方式</li>
+                                        <li> |</li>
+                                        <li class="search-type"> 经营范围</li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                                <form>
+                                    <div class="input-group"><input type="text" value="" id="searchkey"
+                                                                    autocomplete="off"
+                                                                    placeholder="请输入企业名称、人名，产品名等，多关键词用空格隔开，如“小米 雷军”"
+                                                                    name="key"
+                                                                    class="form-control input-lg" required="required"
+                                                                    onkeydown="searchKeydown(event,1);"> <input
+                                            type="hidden"
+                                            id="index"
+                                            name="index"
+                                            value="0"/>
+                                        <span class="input-group-btn"> <input type="submit"
+                                                                              class="button btn btn-success btn-lg"
+                                                                              value="查一下"> </span>
+                                    </div>
+                                </form>
+                                <section class="panel hidden-xs" id="search-list"></section>
                             </div>
-                        </form>
-                        <section class="panel hidden-xs" id="search-list"></section>
+                            <div class="col-md-8 col-md-offset-2"><p class="index-hot">热搜：
+                                <a class="index-hot-company" href="firm_CN_ad52daf3a192de2eb0d1dc8219fdbb0d.htm"
+                                   target="_blank">奔驰高管辱华</a>
+                                <a class="index-hot-company" href="firm_CN_84c17a005a759a5e0d875c1ebb6c9846.htm"
+                                   target="_blank">乐视资金链</a>
+                                <a class="index-hot-company" href="firm_CN_101f9dbf8701f659812440c3cff4b748.htm"
+                                   target="_blank">优酷土豆</a>
+                                <a class="index-hot-company" href="firm_CN_dbdf0fb127e52449ff4b4c79e3ea6f44.htm"
+
+                                   target="_blank">董明珠</a> <a class="index-hot-company"
+                                                              href="firm_CN_16eba61f412cf970050202d0994ca76b.htm"
+
+                                                              target="_blank">360云盘关闭</a></p></div>
+                        </div>
                     </div>
-                    <div class="col-md-8 col-md-offset-2"><p class="index-hot">热搜：
-                        <a class="index-hot-company" href="firm_CN_ad52daf3a192de2eb0d1dc8219fdbb0d.htm"
-                           target="_blank">奔驰高管辱华</a>
-                        <a class="index-hot-company" href="firm_CN_84c17a005a759a5e0d875c1ebb6c9846.htm"
-                           target="_blank">乐视资金链</a>
-                        <a class="index-hot-company" href="firm_CN_101f9dbf8701f659812440c3cff4b748.htm"
-                           target="_blank">优酷土豆</a>
-                        <a class="index-hot-company" href="firm_CN_dbdf0fb127e52449ff4b4c79e3ea6f44.htm"
-
-                           target="_blank">董明珠</a> <a class="index-hot-company"
-                                                      href="firm_CN_16eba61f412cf970050202d0994ca76b.htm"
-
-                                                      target="_blank">360云盘关闭</a></p></div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
+    </div><!-- /.container -->
+</div>
+
 <div class="container m-t-lg">
     <div class="col-md-12">
         <section>
@@ -1330,7 +1352,7 @@
                             </div>
                         </div>
                         <p class="baidu-des" style="color:#fff;">
-                            企查查,启信宝,企业工商信息查询,企业信用信息查询,企业信息查询,工商信息查询,企业信用报告,征信查询,红盾网,天眼查,悉知
+                            快信,启信宝,企业工商信息查询,企业信用信息查询,企业信息查询,工商信息查询,企业信用报告,征信查询,红盾网,天眼查,悉知
                         </p></div>
                 </div>
             </div>
@@ -1426,7 +1448,7 @@
                         </div>
                         <hr style="border-top: 1px solid #111;">
                         <div class="row footer-bottom text-center">
-                            <div class="text-muted m-t-sm"><span><a href="javascript:void(0)" title="企查查">@2014-2016</a> <a
+                            <div class="text-muted m-t-sm"><span><a href="javascript:void(0)" title="乾康">@2013-2016</a> <a
                                     href="javascript:if(confirm(%27http://www.miibeian.gov.cn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.miibeian.gov.cn/%27"
                                     target="_blank"> 苏ICP备15042526号-4
                                 朗动企查查网</a></span></div>
@@ -1483,83 +1505,88 @@
 <div class="fixed-logo  visible-xs"><img class="logo-img" src="/static/material/theme/chacha/cms/v2/images/icon_09.png"
 >
     <div class="logo-title">企业信用查询</div>
-    <div class="logo-content">查企业，就上企查查</div>
+    <div class="logo-content">查企业，就上快信</div>
     <a class="guanzhu"
        href="javascript:if(confirm(%27http://qichacha.com/weixin?from=news  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://qichacha.com/weixin?from=news%27"
-    >点击下载App</a></div>
+    ></a></div>
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
      data-backdrop="static">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" id="loginModalClose" class="close" data-dismiss="modal"><span
-                        aria-hidden="true">&times;</span><span class="sr-only">x</span></button>
-                <h4 class="modal-title">登录</h4></div>
-            <div class="modal-body">
-                <div id="loginModalBody">
-                    <div class="col-sm-12 m-t-md">
-                        <div class="col-sm-6"><a
-                                href="javascript:if(confirm(%27https://open.weixin.qq.com/connect/qrconnect?appid=wx9b26295cdfab4175&redirect_uri=http://www.qichacha.com/user_wxloginok&response_type=code&scope=snsapi_login&state=  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://open.weixin.qq.com/connect/qrconnect?appid=wx9b26295cdfab4175&redirect_uri=http://www.qichacha.com/user_wxloginok&response_type=code&scope=snsapi_login&state=#wechat_redirect%27"
+        <!--<div class="modal-content">-->
+            <!--&lt;!&ndash;<div class="modal-header">&ndash;&gt;-->
+                <!--&lt;!&ndash;<button type="button" id="loginModalClose" class="close" data-dismiss="modal"><span&ndash;&gt;-->
+                        <!--&lt;!&ndash;aria-hidden="true">&times;</span><span class="sr-only">x</span></button>&ndash;&gt;-->
+                <!--&lt;!&ndash;<h4 class="modal-title">登录</h4></div>&ndash;&gt;-->
+            <!--<div class="modal-body">-->
+                <!--<div id="loginModalBody">-->
+                    <!--<div class="col-sm-12 m-t-md">-->
+                        <!--<div class="col-sm-6"><a-->
+                                <!--href="javascript:if(confirm(%27https://open.weixin.qq.com/connect/qrconnect?appid=wx9b26295cdfab4175&redirect_uri=http://www.qichacha.com/user_wxloginok&response_type=code&scope=snsapi_login&state=  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://open.weixin.qq.com/connect/qrconnect?appid=wx9b26295cdfab4175&redirect_uri=http://www.qichacha.com/user_wxloginok&response_type=code&scope=snsapi_login&state=#wechat_redirect%27"-->
 
-                                class="btn btn-success btn-block m-b-sm" style=""> <img
-                                src="/static/material/theme/chacha/cms/v2/images/weixin.png"
+                                <!--class="btn btn-success btn-block m-b-sm" style=""> <img-->
+                                <!--src="/static/material/theme/chacha/cms/v2/images/weixin.png"-->
 
-                                style="width:20px;" class="pull-left"/>
-                            微信登录
-                        </a></div>
-                        <div class="col-sm-6"><a
-                                href="javascript:if(confirm(%27https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101188807&redirect_uri=http%3A%2F%2Fwww.qichacha.com%2Fuser_callbackqq&state=cecce249765a2f61088acdc817168b4c&scope=get_user_info,add_share  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101188807&redirect_uri=http%3A%2F%2Fwww.qichacha.com%2Fuser_callbackqq&state=cecce249765a2f61088acdc817168b4c&scope=get_user_info,add_share%27"
-                                class="btn btn-danger btn-block m-b-sm"
-                                style=""> <img src="/static/material/theme/chacha/cms/v2/images/qq.png"
+                                <!--style="width:20px;" class="pull-left"/>-->
+                            <!--微信登录-->
+                        <!--</a></div>-->
+                        <!--<div class="col-sm-6"><a-->
+                                <!--href="javascript:if(confirm(%27https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101188807&redirect_uri=http%3A%2F%2Fwww.qichacha.com%2Fuser_callbackqq&state=cecce249765a2f61088acdc817168b4c&scope=get_user_info,add_share  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101188807&redirect_uri=http%3A%2F%2Fwww.qichacha.com%2Fuser_callbackqq&state=cecce249765a2f61088acdc817168b4c&scope=get_user_info,add_share%27"-->
+                                <!--class="btn btn-danger btn-block m-b-sm"-->
+                                <!--style=""> <img src="/static/material/theme/chacha/cms/v2/images/qq.png"-->
 
-                                               style="width:20px;" class="pull-left"/>
-                            QQ登录
-                        </a></div>
-                    </div>
-                    <div class="col-sm-12 m-t-md">
-                        <div class="col-sm-4 divisionLine"></div>
-                        <div class="col-sm-4 text-center">或者</div>
-                        <div class="col-sm-4 divisionLine"></div>
-                    </div>
-                    <div class="col-sm-12 m-t-md">
-                        <form role="form" id="user_login_modal">
-                            <div class="form-group has-feedback m-l-lg m-r-lg m-t-xs m-b-none"><span
-                                    class="glyphicon glyphicon-phone form-control-feedback"
-                                    style="left:0;top:2px;"></span> <input type="text" class="form-control input-lg"
-                                                                           name="nameNormal" placeholder="请输入您的手机号码"
-                                                                           style="padding-left: 35px"></div>
-                            <span class="m-l-lg m-r-lg" msgfor="nameNormal"></span>
-                            <div class="form-group has-feedback m-l-lg m-r-lg m-t-xs m-b-none"><span
-                                    class="glyphicon glyphicon-lock form-control-feedback"
-                                    style="left:0px;top:2px;"></span> <input type="password"
-                                                                             class="form-control input-lg"
-                                                                             name="pwdNormal" placeholder="请输入您的密码"
-                                                                             style="padding-left: 35px"></div>
-                            <span class="m-l-lg m-r-lg" msgfor="pwdNormal"></span>
-                            <div class="box m-t-xs">
-                                <div id="dom_id" class="m-l-lg"></div>
-                            </div>
-                            <div class="m-l-lg m-r-lg m-t-lg">
-                                <button type="submit" class="btn  btn-primary     m-t-n-xs btn-block btn-lg font-15">
-                                    <strong>会员登录</strong></button>
-                            </div>
-                            <div class="col-sm-12 m-t-sm">
-                                <div class="col-sm-6"><a href="user_register.htm"
-                                >免费注册</a></div>
-                                <div class="col-sm-6 text-right"><a href="user_forgetpassword.htm"
-                                >忘记密码?</a>
-                                </div>
-                            </div>
-                            <input type='hidden' id='csessionid' name='csessionid'/> <input type='hidden' id='sig'
-                                                                                            name='sig'/> <input
-                                type='hidden' id='token' name='token'/> <input type='hidden' id='scene' name='scene'/>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                               <!--style="width:20px;" class="pull-left"/>-->
+                            <!--QQ登录-->
+                        <!--</a></div>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-12 m-t-md">-->
+                        <!--<div class="col-sm-4 divisionLine"></div>-->
+                        <!--<div class="col-sm-4 text-center">或者</div>-->
+                        <!--<div class="col-sm-4 divisionLine"></div>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-12 m-t-md">-->
+                        <!--<form role="form" id="user_login_modal">-->
+                            <!--<div class="form-group has-feedback m-l-lg m-r-lg m-t-xs m-b-none"><span-->
+                                    <!--class="glyphicon glyphicon-phone form-control-feedback"-->
+                                    <!--style="left:0;top:2px;"></span> <input type="text" class="form-control input-lg"-->
+                                                                           <!--name="nameNormal" placeholder="请输入您的手机号码"-->
+                                                                           <!--style="padding-left: 35px"></div>-->
+                            <!--<span class="m-l-lg m-r-lg" msgfor="nameNormal"></span>-->
+                            <!--<div class="form-group has-feedback m-l-lg m-r-lg m-t-xs m-b-none"><span-->
+                                    <!--class="glyphicon glyphicon-lock form-control-feedback"-->
+                                    <!--style="left:0px;top:2px;"></span> <input type="password"-->
+                                                                             <!--class="form-control input-lg"-->
+                                                                             <!--name="pwdNormal" placeholder="请输入您的密码"-->
+                                                                             <!--style="padding-left: 35px"></div>-->
+                            <!--<span class="m-l-lg m-r-lg" msgfor="pwdNormal"></span>-->
+                            <!--<div class="box m-t-xs">-->
+                                <!--<div id="dom_id" class="m-l-lg"></div>-->
+                            <!--</div>-->
+                            <!--<div class="m-l-lg m-r-lg m-t-lg">-->
+                                <!--<button type="submit" class="btn  btn-primary     m-t-n-xs btn-block btn-lg font-15">-->
+                                    <!--<strong>会员登录</strong></button>-->
+                            <!--</div>-->
+                            <!--<div class="col-sm-12 m-t-sm">-->
+                                <!--<div class="col-sm-6"><a href="user_register.htm"-->
+                                <!--&gt;免费注册</a></div>-->
+                                <!--<div class="col-sm-6 text-right"><a href="user_forgetpassword.htm"-->
+                                <!--&gt;忘记密码?</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<input type='hidden' id='csessionid' name='csessionid'/> <input type='hidden' id='sig'-->
+                                                                                            <!--name='sig'/> <input-->
+                                <!--type='hidden' id='token' name='token'/> <input type='hidden' id='scene' name='scene'/>-->
+                        <!--</form>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 </div>
+<script type="text/javascript" src="/static/material/theme/chacha/cms/v2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/material/theme/chacha/cms/v2/js/particles.min.js"></script>
+<script type="text/javascript" src="/static/material/theme/chacha/cms/v2/js/particlesRun.js"></script>
+<script type="text/javascript" src="/static/material/theme/chacha/cms/v2/js/jquery.mixitup.js"></script>
+<script type="text/javascript" src="/static/material/theme/chacha/cms/v2/js/style-switcher.js"></script>
 <script type="text/javascript">
     (function () {
         var bp = document.createElement('script');
