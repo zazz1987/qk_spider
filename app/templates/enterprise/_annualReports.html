@@ -1,0 +1,181 @@
+<div class="panel-body tab-content">
+    <div class="tab-pane fade active in" id="2015年度">
+        <table class="table table-bordered" style="margin-top:15px;">
+            <tbody>
+            <tr>
+                <td colspan="4" class="left-title font-bold text-center font-15">企业基本信息</td>
+            </tr>
+            <tr>
+                <td class="left-title" width="20%">注册号</td>
+                <td width="30%">{{data.regno_or_creditcode}}</td>
+                <td class="left-title" width="20%">企业经营状态</td>
+                <td width="30%">{{data.enterprise_status}}</td>
+            </tr>
+            <tr>
+                <td class="left-title" width="20%">企业联系电话</td>
+                <td width="25%">{{data.phone}}</td>
+                <td class="left-title" width="20%">电子邮箱</td>
+                <td><a href="mailto:chenchongwei@xiaomi.com" style="color:#555;">{{data.email}}</a></td>
+            </tr>
+            <tr>
+                <td class="left-title" width="20%">邮政编码</td>
+                <td width="25%">{{data.postalcode}}</td>
+                <td class="left-title" width="20%">从业人数</td>
+                <td width="25%">{{data.staff_num}}</td>
+            </tr>
+            <tr>
+                <td class="left-title" width="20%">住所</td>
+                <td colspan="3">{{data.staff_num}}</td>
+            </tr>
+            <tr>
+                <td class="left-title" width="20%">有限责任公司本年度是否发生股东股权转让</td>
+                <td>{{data.stock_transfer_flag}}</td>
+                <td class="left-title" width="20%">企业是否有投资信息或购买其他公司股权</td>
+                <td colspan="3">{{data.stock_buy_flag}}</td>
+            </tr>
+            <tr></tr>
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td colspan="5" class="left-title" style="text-align:center;font-size:14px;font-weight:700;">修改记录
+                </td>
+            </tr>
+            <tr>
+                <td class="left-title">序号</td>
+                <td class="left-title">修改事项</td>
+                <td class="left-title">修改日期</td>
+                <td class="left-title">修改前</td>
+                <td class="left-title">修改后</td>
+            </tr>
+            {% for var in data.qyxx_nb_xgxx %}
+            <tr>
+                <td>{{var.no}}</td>
+                <td>{{var.amend_items}}</td>
+                <td>{{var.amend_date}}</td>
+                <td>{{var.content_before_amend}}</td>
+                <td>{{var.content_after_amend}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td colspan="3" class="left-title font-bold text-center font-15">网站或网店信息</td>
+            </tr>
+            <tr>
+                <td class="left-title">类型</td>
+                <td class="left-title">名称</td>
+                <td class="left-title">网址</td>
+            </tr>
+            {% for var in data.qyxx_nb_xgxx %}
+            <tr>
+                <td>{{var.type}}</td>
+                <td>{{var.name}}</td>
+                <td><a href="{{var.website}}" target="_blank" style="color:#555;">{{var.website}}</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td colspan="2" class="left-title" style="text-align:center;font-size:14px;font-weight:700;">对外投资信息
+                </td>
+            </tr>
+            <tr>
+                <td class="left-title">投资设立企业或购买股权企业名称</td>
+                <td class="left-title">注册号/统一社会信用代码</td>
+            </tr>
+            {% for var in data.qyxx_nb_tzxx %}
+            <tr>
+                <td>{{var.name}}</td>
+                <td>{{var.regno_creditcode}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td colspan="7" class="left-title" style="text-align:center;font-size:14px;font-weight:700;">股东及出资信息
+                </td>
+            </tr>
+            <tr>
+                <td class="left-title">股东</td>
+                <td class="left-title">认缴出资额（万元）</td>
+                <td class="left-title">认缴出资时间</td>
+                <td class="left-title">认缴出资方式</td>
+                <td class="left-title">实缴出资额（万元）</td>
+                <td class="left-title">实缴出资时间</td>
+                <td class="left-title">实缴出资方式</td>
+            </tr>
+            {% for var in data.qyxx_nb_czxx %}
+            <tr>
+                <td>{{var.shareholder_name}}</td>
+                <td>{{var.subscribed_capital}}</td>
+                <td>{{var.subscribed_date}}</td>
+                <td>{{var.subscribed_type}}</td>
+                <td>{{var.paidin_capital}}</td>
+                <td>{{var.paidin_date}}</td>
+                <td>{{var.paidin_type}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td colspan="4" class="left-title" style="text-align:center;font-size:14px;font-weight:700;">股权变更信息
+                </td>
+            </tr>
+            <tr>
+                <td class="left-title">股东</td>
+                <td class="left-title">股权变更日期</td>
+                <td class="left-title">变更前股权比例</td>
+                <td class="left-title">变更后股权比例</td>
+            </tr>
+            {% for var in data.qyxx_nb_bgxx %}
+            <tr>
+                <td>{{var.shareholder_name}}</td>
+                <td>{{var.change_date}}</td>
+                <td>{{var.content_before_change}}</td>
+                <td>{{var.content_after_change}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td colspan="4" class="left-title font-bold text-center font-15">企业资产状况信息</td>
+            </tr>
+            <tr>
+                <td class="left-title" width="20%">资产总额</td>
+                <td>{{var.assets_total}}</td>
+                <td class="left-title" width="20%">所有者权益合计</td>
+                <td>{{var.equity_total}}</td>
+                <td class="left-title" width="20%">利润总额</td>
+                <td>{{var.profit_total}}</td>
+                <td class="left-title" width="20%">净利润</td>
+                <td>{{var.profit_net}}</td>
+                <td class="left-title" width="20%">负债总额</td>
+                <td>{{var.liabilities_total}}</td>
+                <td class="left-title" width="20%">纳税总额</td>
+                <td>{{var.tax_total}}</td>
+                <td class="left-title" width="20%">主营业务收入</td>
+                <td>{{var.main_business_income}}</td><td class="left-title" width="20%">营业总收入</td>
+                <td>{{var.total_business_income}}</td><td class="left-title" width="20%">企业应安置残疾人员数</td>
+                <td>{{var.should_disabilities_num}}</td>
+                <td class="left-title" width="20%">从业人员中属于残疾人</td>
+                <td>{{var.total_disabilities_num}}</td>
+                <td class="left-title" width="20%">金融贷款</td>
+                <td>{{var.financial_loans}}</td>
+                <td class="left-title" width="20%">盈余总额</td>
+                <td>{{var.surplus_tota}}</td>
+                <td class="left-title" width="20%">获得政府扶持资金、补助</td>
+                <td>{{var.access_government_info}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
