@@ -7,8 +7,8 @@ sys.path.append('..')
 # -*- coding: utf-8 -*-
 from app.datasource.bbd.bbd import BBD
 
-# import pydevd
-# pydevd.settrace('licho.iok.la', port=44957, stdoutToServer=True, stderrToServer=True)
+import pydevd
+pydevd.settrace('licho.iok.la', port=44957, stdoutToServer=True, stderrToServer=True)
 
 class TestBBD(TestCase):
     def test_query(self):
@@ -18,13 +18,13 @@ class TestBBD(TestCase):
 
     def test_query_companysearch2(self):
         result = BBD.query_companysearch2(query=u'乾康（上海）金融信息服务股份有限')
-        print(result.text)
-        assert result.text
+        print(result)
+        assert result
 
     def test_query_qyxx_jbxx(self):
         result = BBD.query_qyxx_jbxx(company=u'深圳市易信成科技股份有限公司')
-        print(result.text)
-        assert result.text
+        print(result)
+        assert result
 
     def test_query_qyxx_gdxx(self):
         result = BBD.query_qyxx_gdxx(company=u'福耀玻璃工业集团股份有限公司')

@@ -20,14 +20,16 @@ def search():
     # index = request.args.get('index')
     page_size = request.args.get('page_size')
     result = QueryEnterprise.company_list(query=key, page_size=page_size)
-    return render_template('enterprise/search.html', data=json.loads(result))
+    print(result)
+    return render_template('enterprise/search.html', data=result)
 
 
 @enterprise.route('/result', methods=['GET'])
 def result():
     enterprise_name = request.args.get('company')
     result = QueryEnterprise.query_basic(enterprise_name=enterprise_name)
-    return render_template('enterprise/result.html', data=json.loads(result))
+    print(result)
+    return render_template('enterprise/result.html', data=result)
 
 
 @enterprise.route('/result/annualReport', methods=['GET'])
@@ -39,7 +41,19 @@ def annual_report():
 def basic_info():
     enterprise_name = request.args.get('company')
     result = QueryEnterprise.query_basic(enterprise_name=enterprise_name)
-    return render_template('enterprise/_baseInfo.html', data=json.loads(result))
+    return render_template('enterprise/_baseInfo.html', data=result)
+
+
+@enterprise.route('/result/relatedParty', methods=['GET'])
+def related_party():
+    enterprise_name = request.args.get('company')
+    result = QueryEnterprise.query_related_party(enterprise_name=enterprise_name)
+    return render_template('enterprise/_relatedParty.html', data=result)
+
+@enterprise.route('/result/qualifiction ', methods=['GET'])
+def qualifiction():
+    enterprise_name = request.args.get('company')
+    # result = QueryEnterprise.
 
 @enterprise.route('/user/<username>')
 def user(username):
