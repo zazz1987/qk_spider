@@ -88,15 +88,26 @@ jQuery(document).ready(function (e) {
         }
     });
 
-    $("#searchAllInfos").on("click", function () {
-        alert(0);
-        var index = $("#index").val()
-        var url = ''
-        if (index > 0) {
-            url = getUrl(index)
-        }
-
-    })
+    // $("#searchAllInfos").on("click", function () {
+    //
+    //     var index = $("#index").val()
+    //     var url = ''
+    //     // if (index > 0) {
+    //     //     url = getUrl(index)
+    //     // }
+    //     var data = $("#searchkey").val();
+    //     $.ajax({
+    //         url: '/search',
+    //         type: 'get',
+    //         data: {
+    //             key: data
+    //         },
+    //         success: function (res) {
+    //
+    //         }
+    //     })
+    //
+    // })
 
 
     function getUrl(index) {
@@ -336,32 +347,32 @@ jQuery(document).ready(function (e) {
         list.hide();
         var f = key.val();
         var type = $("#index").val();
-        if ($.trim(f) == "") {
-            return false
-        } else {
-            $.ajax({
-                type: 'POST',
-                url: INDEX_URL + '/gongsi_getList',
-                data: 'key=' + f + "&type=" + type,
-                success: function (a) {
-                    if (a == "null") {
-                        //$(".result-msg").html("网络状态异常");
-                        return false
-                    } else {
-                        var b = "";
-                        var c = JSON.parse(a);
-                        var d = c;
-                        if (d) {
-                            list.show();
-                            var b = dealInfoToHTML(e, d);
-                            list.html(b)
-                        } else {
-                            list.hide()
-                        }
-                    }
-                }
-            })
-        }
+        // if ($.trim(f) == "") {
+        //     return false
+        // } else {
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: INDEX_URL + '/gongsi_getList',
+        //         data: 'key=' + f + "&type=" + type,
+        //         success: function (a) {
+        //             if (a == "null") {
+        //                 //$(".result-msg").html("网络状态异常");
+        //                 return false
+        //             } else {
+        //                 var b = "";
+        //                 var c = JSON.parse(a);
+        //                 var d = c;
+        //                 if (d) {
+        //                     list.show();
+        //                     var b = dealInfoToHTML(e, d);
+        //                     list.html(b)
+        //                 } else {
+        //                     list.hide()
+        //                 }
+        //             }
+        //         }
+        //     })
+        // }
     }
 
 

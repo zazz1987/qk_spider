@@ -119,41 +119,42 @@
                                                    style="color: white;margin-right: 8.3333%">
                             查企业，就上快信!
                         </h1>
-                            <div class="col-md-9 col-md-offset-1">
-                                <div class="search-nav hidden-xs">
-                                    <ul>
-                                        <li class="search-type active">全部</li>
-                                        <li> |</li>
-                                        <li class="search-type">工商信息</li>
-                                        <li> |</li>
-                                        <li class="search-type">年报</li>
-                                        <li> |</li>
-                                        <li class="search-type">关联方</li>
-                                        <li> |</li>
-                                        <li class="search-type"> 无形资产</li>
-                                        <li> |</li>
-                                        <li class="search-type"> 企业资质</li>
-                                        <li> |</li>
-                                        <li class="search-type"> 其他</li>
-                                    </ul>
+                            <form action="/search" method="get">
+                                <div class="col-md-9 col-md-offset-1">
+                                    <div class="search-nav hidden-xs">
+                                        <ul>
+                                            <li class="search-type active">全部</li>
+                                            <li> |</li>
+                                            <li class="search-type">工商信息</li>
+                                            <li> |</li>
+                                            <li class="search-type">年报</li>
+                                            <li> |</li>
+                                            <li class="search-type">关联方</li>
+                                            <li> |</li>
+                                            <li class="search-type"> 无形资产</li>
+                                            <li> |</li>
+                                            <li class="search-type"> 企业资质</li>
+                                            <li> |</li>
+                                            <li class="search-type"> 其他</li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="input-group"><input type="text" value="" id="searchkey"
+                                                                    autocomplete="off"
+                                                                    placeholder="请输入企业名称"
+                                                                    name="key"
+                                                                    class="form-control input-lg" required="required"
+                                                                    onkeydown="searchKeydown(event,1);"> <input
+                                            type="hidden"
+                                            id="index"
+                                            value="0"/>
+                                        <span class="input-group-btn"> <input type="submit" id="searchAllInfos"
+                                                                              class="button btn btn-success btn-lg"
+                                                                              value="快查一下"> </span>
+                                    </div>
+                                    <section class="panel hidden-xs" id="search-list"></section>
                                 </div>
-                                <div class="clearfix"></div>
-                                <div class="input-group"><input type="text" value="" id="searchkey"
-                                                                autocomplete="off"
-                                                                placeholder="请输入企业名称"
-                                                                name="key"
-                                                                class="form-control input-lg" required="required"
-                                                                onkeydown="searchKeydown(event,1);"> <input
-                                        type="hidden"
-                                        id="index"
-                                        name="index"
-                                        value="0"/>
-                                    <span class="input-group-btn"> <input type="submit" id="searchAllInfos"
-                                                                          class="button btn btn-success btn-lg"
-                                                                          value="快查一下"> </span>
-                                </div>
-                                <section class="panel hidden-xs" id="search-list"></section>
-                            </div>
+                            </form>
                             <div class="col-md-8 col-md-offset-2"><p class="index-hot">热搜：
                                 <a class="index-hot-company" href="firm_CN_ad52daf3a192de2eb0d1dc8219fdbb0d.htm"
                                    target="_blank">奔驰高管辱华</a>
