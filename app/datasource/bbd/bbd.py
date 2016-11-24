@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import concurrent
 import inspect
+import json
 import queue
 
 import requests
@@ -55,12 +56,12 @@ class BBD(Third):
         return result_final, BBD.source
 
     @classmethod
-    def query_companysearch2(cls, query):
+    def query_companysearch2(cls, query, page_size=None, page=None):
         url = 'http://dataom.api.bbdservice.com/api/bbd_companysearch2/'
         kwargs = {'type': 'company', 'query': query, 'ak': '0bb874407f472e96a2718649ad686680'}
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_companysearch2'] = result
+        meta['bbd_companysearch2'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -77,7 +78,7 @@ class BBD(Third):
         kwargs['ak'] = '6218684779c4132bbf9180e20e2ebc4d'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qyxx_jbxx'] = result
+        meta['bbd_qyxx_jbxx'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -97,7 +98,7 @@ class BBD(Third):
         kwargs['ak'] = '91718c463d479eeb5bcf41b8bac1146c'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qyxx_gdxx'] = result
+        meta['bbd_qyxx_gdxx'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -117,7 +118,7 @@ class BBD(Third):
         kwargs['ak'] = '3e2c21da398e8b0784742cc8065a5238'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qyxx_baxx'] = result
+        meta['bbd_qyxx_baxx'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -137,7 +138,7 @@ class BBD(Third):
         kwargs['ak'] = '6da1647f095c34c4b7e3482fefc11624'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qyxx_fzjg_extend'] = result
+        meta['bbd_qyxx_fzjg_extend'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -157,7 +158,7 @@ class BBD(Third):
         kwargs['ak'] = '08d8ed25b77d24ac006aa8d7fe50796c'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qyxx_bgxx'] = result
+        meta['bbd_qyxx_bgxx'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -175,12 +176,11 @@ class BBD(Third):
         kwargs['ak'] = '9e210f0872288c1698a659ef4a74abfd'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qyxx_nb'] = result
+        meta['bbd_qyxx_nb'] = json.loads(result.text)
         return meta
 
     @classmethod
     def query_rel(cls, company=None, qyxx_id=None):
-        # TODO: 没有找到文档
         """
         关联方
         :param company: 企业名称，精确匹配(key)
@@ -192,7 +192,7 @@ class BBD(Third):
         kwargs['ak'] = 'fdc1d84871df1eaa8554269fa3a788c7'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_rel'] = result
+        meta['bbd_rel'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -212,7 +212,7 @@ class BBD(Third):
         kwargs['ak'] = '57fe32c5729cd3f5c7fe4d787502c5ca'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_dishonesty'] = result
+        meta['bbd_dishonesty'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -232,7 +232,7 @@ class BBD(Third):
         kwargs['ak'] = '9cea84a1ec2b48bbfb64cdf2c27051fb'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_zhixing'] = result
+        meta['bbd_zhixing'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -252,7 +252,7 @@ class BBD(Third):
         kwargs['ak'] = '0b334fa836551ab594acc226590eadde'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_ktgg'] = result
+        meta['bbd_ktgg'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -272,7 +272,7 @@ class BBD(Third):
         kwargs['ak'] = '84e49e319e9807f755b33da8554d3adf'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_zgcpwsw'] = result
+        meta['bbd_zgcpwsw'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -292,7 +292,7 @@ class BBD(Third):
         kwargs['ak'] = '432e3cf566973c502ef988ca690c5125'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_rmfygg'] = result
+        meta['bbd_rmfygg'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -308,7 +308,7 @@ class BBD(Third):
         kwargs['ak'] = '5228580d5cb1ebb510d330cd7775b512'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qyxg_qyqs'] = result
+        meta['bbd_qyxg_qyqs'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -328,7 +328,7 @@ class BBD(Third):
         kwargs['ak'] = 'f6166a1b6a21eb132ab83e6a62941d0b'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_ent_trademark'] = result
+        meta['bbd_ent_trademark'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -348,7 +348,7 @@ class BBD(Third):
         kwargs['ak'] = 'ed63a43c3b4eba9c1d9d283e395f0356'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_domain_name_website_info'] = result
+        meta['bbd_domain_name_website_info'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -368,7 +368,7 @@ class BBD(Third):
         kwargs['ak'] = '4ba7997f4126c57a4c0bb219fa76ba8e'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_patent'] = result
+        meta['bbd_patent'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -385,7 +385,7 @@ class BBD(Third):
         kwargs['ak'] = '7120c82b97dd195ce0943128fec8777a'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qyxg_jyyc'] = result
+        meta['bbd_qyxg_jyyc'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -405,7 +405,7 @@ class BBD(Third):
         kwargs['ak'] = '1bd14a4c879eab50c67230f415c3885b'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_ent_softw_copyr'] = result
+        meta['bbd_ent_softw_copyr'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -425,7 +425,7 @@ class BBD(Third):
         kwargs['ak'] = 'b257ad26738fa0f7c71ac2e61f357306'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_ent_copyrights'] = result
+        meta['bbd_ent_copyrights'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -445,7 +445,7 @@ class BBD(Third):
         kwargs['ak'] = '9c461172079a238072533432b432c4a6'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_ent_admin_pena'] = result
+        meta['bbd_ent_admin_pena'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -465,7 +465,7 @@ class BBD(Third):
         kwargs['ak'] = '57d9e580910823191df1d84e9469b933'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_recruit'] = result
+        meta['bbd_recruit'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -485,7 +485,7 @@ class BBD(Third):
         kwargs['ak'] = 'e9c79ff4d6c9cc788d0dc4d396b07203'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_bidinviting'] = result
+        meta['bbd_bidinviting'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -505,7 +505,7 @@ class BBD(Third):
         kwargs['ak'] = '1e1c017da8bd340589c2d24c6f1c96a2'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_bidwinner'] = result
+        meta['bbd_bidwinner'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -525,7 +525,7 @@ class BBD(Third):
         kwargs['ak'] = '73cb77ab6a84ad8aadfd3c8bb651e0ec'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_overseasinv'] = result
+        meta['bbd_overseasinv'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -545,7 +545,7 @@ class BBD(Third):
         kwargs['ak'] = 'e042bb26d9982c4a93e97b1021600856'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_licence_mining'] = result
+        meta['bbd_licence_mining'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -561,7 +561,7 @@ class BBD(Third):
         kwargs['ak'] = '04e3434aec07d0a6bd3297713fbfa3fb'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_licence_pros'] = result
+        meta['bbd_licence_pros'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -577,7 +577,7 @@ class BBD(Third):
         kwargs['ak'] = '8d8535a1116ae9ba915deba093f37531'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qua_comm_cons'] = result
+        meta['bbd_qua_comm_cons'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -597,7 +597,7 @@ class BBD(Third):
         kwargs['ak'] = 'bc0a82246d1d941296b2bff9d99a8541'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_licence_bui_cons'] = result
+        meta['bbd_licence_bui_cons'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -617,7 +617,7 @@ class BBD(Third):
         kwargs['ak'] = 'af7f4d5a48703bbfcc7b8c5901255506'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qyxx_gcjljz'] = result
+        meta['bbd_qyxx_gcjljz'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -637,7 +637,7 @@ class BBD(Third):
         kwargs['ak'] = '5e7649f674de278856d5c9c3cc7f59d5'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qua_itsys_sup'] = result
+        meta['bbd_qua_itsys_sup'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -653,7 +653,7 @@ class BBD(Third):
         kwargs['ak'] = 'e5338ab1413b22bca468ae1ff3b4145b'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_cert_soft_ent_pro'] = result
+        meta['bbd_cert_soft_ent_pro'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -673,7 +673,7 @@ class BBD(Third):
         kwargs['ak'] = '3db96eeb4c54f43810c5fb913c122b3f'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_licence_ind_pro'] = result
+        meta['bbd_licence_ind_pro'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -693,7 +693,7 @@ class BBD(Third):
         kwargs['ak'] = '63ed7c6f23943c35838ff73add038794'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qua_pes_pro'] = result
+        meta['bbd_qua_pes_pro'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -713,7 +713,7 @@ class BBD(Third):
         kwargs['ak'] = '522b24b4f498e51aecc3fb29a07226d4'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_licence_food_pro'] = result
+        meta['bbd_licence_food_pro'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -733,7 +733,7 @@ class BBD(Third):
         kwargs['ak'] = '450b2c6b49ccfb5cf192c8d4cfb9232c'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_licence_medi_pro'] = result
+        meta['bbd_licence_medi_pro'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -753,7 +753,7 @@ class BBD(Third):
         kwargs['ak'] = '8bae1c379f46c6c695f6dd93f299f98e'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_licence_medi_oper'] = result
+        meta['bbd_licence_medi_oper'] = json.loads(result.text)
         return meta
 
     @classmethod
@@ -773,7 +773,7 @@ class BBD(Third):
         kwargs['ak'] = '9e2a2e8f04de6920a09845c76201b8e'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_qua_cos_pro'] = result
+        meta['bbd_qua_cos_pro'] = json.loads(result.text)
         return meta
 
 
@@ -794,5 +794,5 @@ class BBD(Third):
         kwargs['ak'] = '97260a333e906530bd32ddb007c67c17'
         result = requests.get(url=url, params=kwargs)
         meta = dict()
-        meta['bbd_gmp_auth'] = result
+        meta['bbd_gmp_auth'] = json.loads(result.text)
         return meta
