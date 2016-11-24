@@ -15,7 +15,7 @@ class QueryEnterprise():
         key = kwargs.get('key')
         index = kwargs.get('index')
         page_size = kwargs.get('page_size')
-        # BBD.query(enterprise_name=key, page_size=page_size)
+        BBD.query(enterprise_name=key, page_size=page_size)
 
         data = dict()
         data['data'] = []
@@ -30,7 +30,13 @@ class QueryEnterprise():
             #境外投资
             data['data'].append(BBD.query_overseasinv(company=key, **kwargs))
         return json.dumps(data)
-        
+
+    @classmethod
+    def query_basic(cls, *args, **kwargs):
+        enterprise_name = kwargs.get('enterprise_name')
+        result = BBD.query_qyxx_jbxx(company=enterprise_name)
+        return result.text
+
     @classmethod
     def company_list(cls, query, page_size=None):
         result = BBD.query_companysearch2(query=query, page_size=page_size)
