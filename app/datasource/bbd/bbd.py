@@ -59,7 +59,9 @@ class BBD(Third):
         url = 'http://dataom.api.bbdservice.com/api/bbd_companysearch2/'
         kwargs = {'type': 'company', 'query': query, 'ak': '0bb874407f472e96a2718649ad686680'}
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_companysearch2'] = result
+        return meta
 
     @classmethod
     def query_qyxx_jbxx(cls, company=None, qyxx_id=None):
@@ -74,7 +76,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '6218684779c4132bbf9180e20e2ebc4d'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qyxx_jbxx'] = result
+        return meta
 
     @classmethod
     def query_qyxx_gdxx(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -92,7 +96,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '91718c463d479eeb5bcf41b8bac1146c'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qyxx_gdxx'] = result
+        return meta
 
     @classmethod
     def query_qyxx_baxx(cls, company=None, page=None, page_size=None, start=None, end=None,  qyxx_id=None):
@@ -110,7 +116,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '3e2c21da398e8b0784742cc8065a5238'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qyxx_baxx'] = result
+        return meta
 
     @classmethod
     def query_qyxx_fzjg_extend(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -128,7 +136,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '6da1647f095c34c4b7e3482fefc11624'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qyxx_fzjg_extend'] = result
+        return meta
 
     @classmethod
     def query_qyxx_bgxx(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -146,7 +156,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '08d8ed25b77d24ac006aa8d7fe50796c'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qyxx_bgxx'] = result
+        return meta
 
     @classmethod
     def query_qyxx_nb(cls, company=None, year=None, detail=None, qyxx_id=None):
@@ -162,7 +174,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '9e210f0872288c1698a659ef4a74abfd'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qyxx_nb'] = result
+        return meta
 
     @classmethod
     def query_rel(cls, company=None, qyxx_id=None):
@@ -177,7 +191,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = 'fdc1d84871df1eaa8554269fa3a788c7'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_rel'] = result
+        return meta
 
     @classmethod
     def query_dishonesty(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -195,7 +211,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '57fe32c5729cd3f5c7fe4d787502c5ca'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_dishonesty'] = result
+        return meta
 
     @classmethod
     def query_zhixing(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -213,7 +231,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '9cea84a1ec2b48bbfb64cdf2c27051fb'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_zhixing'] = result
+        return meta
 
     @classmethod
     def query_ktgg(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -231,7 +251,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '0b334fa836551ab594acc226590eadde'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_ktgg'] = result
+        return meta
 
     @classmethod
     def query_zgcpwsw(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -249,7 +271,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '84e49e319e9807f755b33da8554d3adf'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_zgcpwsw'] = result
+        return meta
 
     @classmethod
     def query_rmfygg(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -267,7 +291,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '432e3cf566973c502ef988ca690c5125'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_rmfygg'] = result
+        return meta
 
     @classmethod
     def query_qyxg_qyqs(cls, company=None, qyxx_id=None):
@@ -281,7 +307,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '5228580d5cb1ebb510d330cd7775b512'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qyxg_qyqs'] = result
+        return meta
 
     @classmethod
     def query_ent_trademark(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -299,7 +327,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = 'f6166a1b6a21eb132ab83e6a62941d0b'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_ent_trademark'] = result
+        return meta
 
     @classmethod
     def query_domain_name_website_info(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -317,7 +347,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = 'ed63a43c3b4eba9c1d9d283e395f0356'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_domain_name_website_info'] = result
+        return meta
 
     @classmethod
     def query_patent(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -335,7 +367,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '4ba7997f4126c57a4c0bb219fa76ba8e'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_patent'] = result
+        return meta
 
     @classmethod
     def query_qyxg_jyyc(cls, company=None, page=None, qyxx_id=None):
@@ -350,7 +384,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '7120c82b97dd195ce0943128fec8777a'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qyxg_jyyc'] = result
+        return meta
 
     @classmethod
     def query_ent_softw_copyr(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -368,7 +404,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '1bd14a4c879eab50c67230f415c3885b'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_ent_softw_copyr'] = result
+        return meta
 
     @classmethod
     def query_ent_copyrights(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -386,7 +424,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = 'b257ad26738fa0f7c71ac2e61f357306'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_ent_copyrights'] = result
+        return meta
 
     @classmethod
     def query_ent_admin_pena(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -404,7 +444,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '9c461172079a238072533432b432c4a6'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_ent_admin_pena'] = result
+        return meta
 
     @classmethod
     def query_recruit(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -422,7 +464,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '57d9e580910823191df1d84e9469b933'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_recruit'] = result
+        return meta
 
     @classmethod
     def query_bidinviting(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -440,7 +484,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = 'e9c79ff4d6c9cc788d0dc4d396b07203'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_bidinviting'] = result
+        return meta
 
     @classmethod
     def query_bidwinner(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -458,7 +504,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '1e1c017da8bd340589c2d24c6f1c96a2'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_bidwinner'] = result
+        return meta
 
     @classmethod
     def query_overseasinv(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -476,7 +524,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '73cb77ab6a84ad8aadfd3c8bb651e0ec'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_overseasinv'] = result
+        return meta
 
     @classmethod
     def query_licence_mining(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -494,7 +544,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = 'e042bb26d9982c4a93e97b1021600856'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_licence_mining'] = result
+        return meta
 
     @classmethod
     def query_licence_pros(cls, company=None, page=None):
@@ -508,7 +560,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '04e3434aec07d0a6bd3297713fbfa3fb'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_licence_pros'] = result
+        return meta
 
     @classmethod
     def query_qua_comm_cons(cls, company=None, page=None):
@@ -522,7 +576,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '8d8535a1116ae9ba915deba093f37531'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qua_comm_cons'] = result
+        return meta
 
     @classmethod
     def query_licence_bui_cons(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -540,7 +596,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = 'bc0a82246d1d941296b2bff9d99a8541'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_licence_bui_cons'] = result
+        return meta
 
     @classmethod
     def query_qyxx_gcjljz(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -558,7 +616,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = 'af7f4d5a48703bbfcc7b8c5901255506'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qyxx_gcjljz'] = result
+        return meta
 
     @classmethod
     def query_qua_itsys_sup(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -576,7 +636,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '5e7649f674de278856d5c9c3cc7f59d5'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qua_itsys_sup'] = result
+        return meta
 
     @classmethod
     def query_cert_soft_ent_pro(cls, company=None, page=None):
@@ -590,7 +652,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = 'e5338ab1413b22bca468ae1ff3b4145b'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_cert_soft_ent_pro'] = result
+        return meta
 
     @classmethod
     def query_licence_ind_pro(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -608,7 +672,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '3db96eeb4c54f43810c5fb913c122b3f'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_licence_ind_pro'] = result
+        return meta
 
     @classmethod
     def query_qua_pes_pro(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -626,7 +692,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '63ed7c6f23943c35838ff73add038794'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qua_pes_pro'] = result
+        return meta
 
     @classmethod
     def query_licence_food_pro(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -644,7 +712,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '522b24b4f498e51aecc3fb29a07226d4'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_licence_food_pro'] = result
+        return meta
 
     @classmethod
     def query_licence_medi_pro(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -662,7 +732,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '450b2c6b49ccfb5cf192c8d4cfb9232c'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_licence_medi_pro'] = result
+        return meta
 
     @classmethod
     def query_licence_medi_oper(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -680,7 +752,9 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '8bae1c379f46c6c695f6dd93f299f98e'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_licence_medi_oper'] = result
+        return meta
 
     @classmethod
     def query_qua_cos_pro(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -698,7 +772,10 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '9e2a2e8f04de6920a09845c76201b8e'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_qua_cos_pro'] = result
+        return meta
+
 
     @classmethod
     def query_gmp_auth(cls, company=None, page=None, page_size=None, start=None, end=None, qyxx_id=None):
@@ -716,4 +793,6 @@ class BBD(Third):
         kwargs = params_to_dict(1)
         kwargs['ak'] = '97260a333e906530bd32ddb007c67c17'
         result = requests.get(url=url, params=kwargs)
-        return result
+        meta = dict()
+        meta['bbd_gmp_auth'] = result
+        return meta
