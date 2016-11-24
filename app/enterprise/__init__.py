@@ -2,7 +2,7 @@ from flask import Blueprint
 
 enterprise = Blueprint('enterprise', __name__)
 
-from . import views, errors
+from . import views, views2, views3, errors
 from ..models import Permission
 
 
