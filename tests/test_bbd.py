@@ -18,13 +18,13 @@ class TestBBD(TestCase):
 
     def test_query_companysearch2(self):
         result = BBD.query_companysearch2(query=u'乾康（上海）金融信息服务股份有限')
-        print(result.text)
-        assert result.text
+        print(result)
+        assert result
 
     def test_query_qyxx_jbxx(self):
-        result = BBD.query_qyxx_jbxx(company=u'乾康（上海）金融信息服务股份有限')
-        print(result.text)
-        assert result.text
+        result = BBD.query_qyxx_jbxx(company=u'深圳市易信成科技股份有限公司')
+        print(result)
+        assert result
 
     def test_query_qyxx_gdxx(self):
         result = BBD.query_qyxx_gdxx(company=u'福耀玻璃工业集团股份有限公司')
@@ -214,8 +214,8 @@ class TestBBD(TestCase):
 if __name__ == '__main__':
     t = TestBBD()
     # t.test_query()
-    t.test_query_companysearch2()
-    # t.test_query_qyxx_jbxx()
+    # t.test_query_companysearch2()
+    t.test_query_qyxx_jbxx()
     # t.test_query_qyxx_gdxx()
     # t.test_query_qyxx_baxx()
     # t.test_query_qyxx_fzjg_extend()

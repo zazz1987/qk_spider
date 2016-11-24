@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="renderer" content="webkit">
     <meta name="author" content="leslie">
-    <title>让人的搜索结果 - 乾康快信</title>
+    <title>搜索结果 - 乾康快信</title>
     <meta name="keywords"
           content="启信宝,企业查询宝,企业信用信息查询,企业工商信息查询,企业信用报告,企业失信信息查询,红盾网,天眼查,悉知,2016最新企业名录,2016工商名录,2016工商企业电话,企业财务信息查询">
     <meta name="description"
@@ -28,34 +28,62 @@
     <script src="/static/material/theme/chacha/cms/v2/js/bootstrap.js"></script>
     <script src="/static/material/theme/chacha/cms/v2/js/toastr.js" type="text/javascript"></script>
     <script src="/static/material/theme/chacha/cms/v2/js/custom.js?time=20160927"></script>
-    <script type='text/javascript'>
-        var _vds = _vds || [];
-        window._vds = _vds;
-        (function () {
-            _vds.push(['setAccountId', '9c1eb7420511f8b2']);
-            (function () {
-                var vds = document.createElement('script');
-                vds.type = 'text/javascript';
-                vds.async = true;
-                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(vds, s);
-            })();
-        })();
-    </script>
 </head>
 <body>
 <header class="bg-white header header-md navbar  box-shadow">
     <div class="container">
         <div class="navbar-header"><a class="btn btn-link visible-xs" data-toggle="collapse" data-target="#bs-navbar"
                                       aria-controls="bs-navbar" aria-expanded="false"> <i class="fa fa-bars"></i> </a>
-            <a href="/" class="navbar-brand"> <img src="/static/material/theme/chacha/cms/v2/images/logo4.png" class="m-r-sm"
-                                                   alt="企查查"> </a> </div>
+            <a href="/" class="navbar-brand"> <img src="/static/material/theme/chacha/cms/v2/images/logo4.png"
+                                                   class="m-r-sm"
+                                                   alt="快信"> </a> <a class="btn btn-link visible-xs"
+                                                                     href="/user_follow"> <i class="fa fa-user"></i>
+            </a></div>
         <ul class="nav navbar-nav collapse navbar-collapse" id="bs-navbar">
             <li class="active"><a href="/">首页</a></li>
-            <li class=""><a target="_blank" href="http://www.advisingbank.com">授信评估中心</a></li>
-            <li class=""><a target="_blank" href="http://www.qkjr.com.cn">关于乾康</a></li>
-            <li class=""><a href="#contact">联系我们</a></li>
+            <li class=""><a href="/radar">雷达</a></li>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                发现 <b class="caret"></b> </a>
+                <section class="dropdown-menu aside-lg bg-white on animated fadeInLeft">
+                    <div class="row m-l-none m-r-none m-t m-b text-center">
+                        <div class="col-xs-4">
+                            <div class="padder-v"><a href="/dianping"> <span class="m-b-xs block"> <i
+                                    class="i  i-bubble i-2x text-info"></i> </span>
+                                <small class="text-muted">读点评</small>
+                            </a></div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="padder-v"><a href="/album"> <span class="m-b-xs block"> <i
+                                    class="fa  fa-picture-o i-2x text-dark"></i> </span>
+                                <small class="text-muted">看专辑</small>
+                            </a></div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="padder-v"><a href="/join"> <span class="m-b-xs block"> <i
+                                    class="i i-mail i-2x text-primary"></i> </span>
+                                <small class="text-muted">企业认领</small>
+                            </a></div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="padder-v"><a href="/news"> <span class="m-b-xs block"> <i
+                                    class="fa  fa-fire  i-2x text-danger"></i> </span>
+                                <small class="text-muted">企业头条</small>
+                            </a></div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="padder-v"><a href="/more_relations"> <span class="m-b-xs block"> <i
+                                    class="fa fa-magnet i-2x text-warning"></i> </span>
+                                <small class="text-muted">找关系</small>
+                            </a></div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="padder-v"><a href="http://form.mikecrm.com/iSC4NA" target="_blank"> <span
+                                    class="m-b-xs block"> <i class="fa fa-rub i-2x text-success"></i> </span>
+                                <small class="text-muted">企业市场</small>
+                            </a></div>
+                        </div>
+                </section>
+            </li>
         </ul>
     </div>
 </header>
@@ -749,7 +777,8 @@
             </div>
             <div class="col-md-12 no-padding" id="load_data">
                 <section class="text-center" style="padding:100px 0;"><img
-                        src="/static/material/theme/chacha/cms/v2/images/preloader.gif" style="width:70px;margin-top:50px;"/>
+                        src="/static/material/theme/chacha/cms/v2/images/preloader.gif"
+                        style="width:70px;margin-top:50px;"/>
                 </section>
             </div>
             <div class="col-md-12 no-padding-right" id="ajaxlist">
@@ -791,270 +820,35 @@
                         </tr>
                         </thead>
                         <tbody>
+                        {% for info in data.rdata %}
                         <tr class="table-search-list">
                             <td class="tp1"><a href="/firm_37c7aba8c05294613bb2125fbe828e62.shtml" target="_blank"> <img
                                     src="http://co-image.qichacha.com/CompanyImage/default.jpg"
                                     style="border: solid #eceff0 1px;"> </a></td>
                             <td class="tp2"><span class="tp2_tit clear"> <a
-                                    href="/firm_37c7aba8c05294613bb2125fbe828e62.shtml" target="_blank" target="_blank"
-                                    class="text-priamry">上海三菱电梯有限公司</a> </span>
-                                <small class="text-muted clear"><span class="font-15 text-black m-r">  范秉勋</span> 企业法人
+                                    href="result.html" target="_blank" target="_blank"
+                                    class="text-priamry">{{info.company_name}}</a> </span>
+                                <small class="text-muted clear"><span
+                                        class="font-15 text-black m-r">  {{info.frname}}</span> 企业法人
                                 </small>
-                                <small class="text-muted clear"><span><i class="i i-phone3"></i> 021-24083030</span>
+                                <small class="text-muted clear"><span><i class="i i-phone3"></i>  {{info.address}}</span>
                                 </small>
                                 <small class="text-muted clear"><i class="i   i-search"></i>
-                                    专利：非<em>让</em>刀式双面车刀
-
-
+                                    {{info.company_type}}
                                 </small>
                             </td>
                             <td class="tp3 text-center">
-                                15526.9363万美元
+                                {{info.regcap}}
                             </td>
                             <td class="tp4 text-center">
-                                1986-12-02
+                                {{info.esdate}}
                             </td>
                             <td class="tp5 text-center"><a href="#"> <span
-                                    class="label list-detail list-success m-l-xs">存续</span> </a></td>
+                                    class="label list-detail list-success m-l-xs">{{info.company_enterprise_status}}</span>
+                            </a></td>
                         </tr>
-                        <tr class="table-search-list">
-                            <td class="tp1"><a href="/firm_f1a9885646b6524c940635e00e22fce5.shtml" target="_blank"> <img
-                                    src="http://co-image.qichacha.com/CompanyImage/f1a9885646b6524c940635e00e22fce5.jpg"
-                                    style="border: solid #eceff0 1px;"> </a></td>
-                            <td class="tp2"><span class="tp2_tit clear"> <a
-                                    href="/firm_f1a9885646b6524c940635e00e22fce5.shtml" target="_blank" target="_blank"
-                                    class="text-priamry">广东欧珀移动通信有限公司</a> </span>
-                                <small class="text-muted clear"><span class="font-15 text-black m-r">  金乐亲</span> 企业法人
-                                </small>
-                                <small class="text-muted clear"><span><i class="i i-phone3"></i> 0769-86076999</span>
-                                    <span class="m-l"><i class="fa  fa-envelope-o"></i> long_gong@oppo.com</span>
-                                </small>
-                                <small class="text-muted clear"><i class="i   i-search"></i>
-                                    专利：一种手持设备<em>人</em>机界面主...
+                        {% endfor %}
 
-
-                                </small>
-                            </td>
-                            <td class="tp3 text-center">
-                                52767.5万香港元
-                            </td>
-                            <td class="tp4 text-center">
-                                2003-04-11
-                            </td>
-                            <td class="tp5 text-center"><a href="#"> <span
-                                    class="label list-detail list-success m-l-xs">存续</span> </a></td>
-                        </tr>
-                        <tr class="table-search-list">
-                            <td class="tp1"><a href="/firm_e33d4ab84a374d88a911c7bf980c8ef9.shtml" target="_blank"> <img
-                                    src="http://co-image.qichacha.com/CompanyImage/e33d4ab84a374d88a911c7bf980c8ef9.jpg"
-                                    style="border: solid #eceff0 1px;"> </a></td>
-                            <td class="tp2"><span class="tp2_tit clear"> <a
-                                    href="/firm_e33d4ab84a374d88a911c7bf980c8ef9.shtml" target="_blank" target="_blank"
-                                    class="text-priamry">兖矿集团有限公司</a> </span>
-                                <small class="text-muted clear"><span class="font-15 text-black m-r">  李希勇</span> 企业法人
-                                </small>
-                                <small class="text-muted clear"><span><i
-                                        class="i i-phone3"></i> 0537-5383493，5392138</span> <span class="m-l"><i
-                                        class="fa  fa-envelope-o"></i> ykzjb@ykjt.cn</span></small>
-                                <small class="text-muted clear"><i class="i   i-search"></i>
-                                    专利：适用于地下工程支护拱架的定量<em>让<...
-
-
-                                </small>
-                            </td>
-                            <td class="tp3 text-center">
-                                335338.8万元人民币
-                            </td>
-                            <td class="tp4 text-center">
-                                1996-03-12
-                            </td>
-                            <td class="tp5 text-center"><a href="#"> <span
-                                    class="label list-detail list-success m-l-xs">在业</span> </a></td>
-                        </tr>
-                        <tr class="table-search-list">
-                            <td class="tp1"><a href="/firm_fdebfd26b2fb7aa1a2e2a50d602ba0f5.shtml" target="_blank"> <img
-                                    src="http://co-image.qichacha.com/CompanyImage/default.jpg"
-                                    style="border: solid #eceff0 1px;"> </a></td>
-                            <td class="tp2"><span class="tp2_tit clear"> <a
-                                    href="/firm_fdebfd26b2fb7aa1a2e2a50d602ba0f5.shtml" target="_blank" target="_blank"
-                                    class="text-priamry">上海卓易科技股份有限公司</a> </span>
-                                <small class="text-muted clear"><span class="font-15 text-black m-r">  孙幼龙</span> 企业法人
-                                </small>
-                                <small class="text-muted clear"><span><i class="i i-phone3"></i> 021-33563770</span>
-                                    <span class="m-l"><i class="fa  fa-envelope-o"></i> panxiuqin@tydtech.com</span>
-                                </small>
-                                <small class="text-muted clear"><i class="i   i-search"></i>
-                                    专利：一种<em>让</em>电子书自动翻页的...
-
-
-                                </small>
-                            </td>
-                            <td class="tp3 text-center">
-                                11000万人民币
-                            </td>
-                            <td class="tp4 text-center">
-                                2008-01-25
-                            </td>
-                            <td class="tp5 text-center"><a href="#"> <span
-                                    class="label list-detail list-success m-l-xs">存续</span> </a></td>
-                        </tr>
-                        <tr class="table-search-list">
-                            <td class="tp1"><a href="/firm_7bb080d8ca200026354d6bc87a27c6b6.shtml" target="_blank"> <img
-                                    src="http://co-image.qichacha.com/CompanyImage/7bb080d8ca200026354d6bc87a27c6b6.jpg"
-                                    style="border: solid #eceff0 1px;"> </a></td>
-                            <td class="tp2"><span class="tp2_tit clear"> <a
-                                    href="/firm_7bb080d8ca200026354d6bc87a27c6b6.shtml" target="_blank" target="_blank"
-                                    class="text-priamry">苏州蜗牛数字科技股份有限公司</a> </span>
-                                <small class="text-muted clear"><span class="font-15 text-black m-r">  石海</span> 企业法人
-                                </small>
-                                <small class="text-muted clear"><span><i class="i i-phone3"></i> 0512-67671313</span>
-                                    <span class="m-l"><i class="fa  fa-envelope-o"></i> info@snailgame.net</span>
-                                </small>
-                                <small class="text-muted clear"><i class="i   i-search"></i>
-                                    软件著作权：蜗牛《<em>让</em>麻将飞》手机游...
-
-
-                                </small>
-                            </td>
-                            <td class="tp3 text-center">
-                                12000万元人民币
-                            </td>
-                            <td class="tp4 text-center">
-                                2000-10-30
-                            </td>
-                            <td class="tp5 text-center"><a href="#"> <span
-                                    class="label list-detail list-success m-l-xs">在业</span> </a></td>
-                        </tr>
-                        <tr class="table-search-list">
-                            <td class="tp1"><a href="/firm_05a625eb847c93a28fe038227090ff22.shtml" target="_blank"> <img
-                                    src="http://co-image.qichacha.com/CompanyImage/05a625eb847c93a28fe038227090ff22.jpg"
-                                    style="border: solid #eceff0 1px;"> </a></td>
-                            <td class="tp2"><span class="tp2_tit clear"> <a
-                                    href="/firm_05a625eb847c93a28fe038227090ff22.shtml" target="_blank" target="_blank"
-                                    class="text-priamry">深圳市粤豪珠宝有限公司</a> </span>
-                                <small class="text-muted clear"><span class="font-15 text-black m-r">  周厚厚</span> 企业法人
-                                </small>
-                                <small class="text-muted clear"><span><i class="i i-phone3"></i> 0755-25621111</span>
-                                    <span class="m-l"><i class="fa  fa-envelope-o"></i> 645046332@qq.com</span></small>
-                                <small class="text-muted clear"><i class="i   i-search"></i>
-                                    专利：饰品（宝贝福金十八启智之孔融<em>让<...
-
-
-                                </small>
-                            </td>
-                            <td class="tp3 text-center">
-                                50000万元人民币
-                            </td>
-                            <td class="tp4 text-center">
-                                2003-03-04
-                            </td>
-                            <td class="tp5 text-center"><a href="#"> <span
-                                    class="label list-detail list-success m-l-xs">在业</span> </a></td>
-                        </tr>
-                        <tr class="table-search-list">
-                            <td class="tp1"><a href="/firm_de6b45a3d09e2d4824df98bdc8a37c79.shtml" target="_blank"> <img
-                                    src="http://co-image.qichacha.com/CompanyImage/de6b45a3d09e2d4824df98bdc8a37c79.jpg"
-                                    style="border: solid #eceff0 1px;"> </a></td>
-                            <td class="tp2"><span class="tp2_tit clear"> <a
-                                    href="/firm_de6b45a3d09e2d4824df98bdc8a37c79.shtml" target="_blank" target="_blank"
-                                    class="text-priamry">山西晋城无烟煤矿业集团有限责任公司</a> </span>
-                                <small class="text-muted clear"><span class="font-15 text-black m-r">  贺天才</span> 企业法人
-                                </small>
-                                <small class="text-muted clear"><span><i class="i i-phone3"></i> 0356-3664145</span>
-                                    <span class="m-l"><i class="fa  fa-envelope-o"></i> jinmeijituan@jamg.cn</span>
-                                </small>
-                                <small class="text-muted clear"><i class="i   i-search"></i>
-                                    专利：索道<em>人</em>车挂座杆
-
-
-                                </small>
-                            </td>
-                            <td class="tp3 text-center">
-                                390,519.56万元
-                            </td>
-                            <td class="tp4 text-center">
-                                1958-12-31
-                            </td>
-                            <td class="tp5 text-center"><a href="#"> <span
-                                    class="label list-detail list-success m-l-xs">存续</span> </a></td>
-                        </tr>
-                        <tr class="table-search-list">
-                            <td class="tp1"><a href="/firm_423abb764631d190382c16678af794b5.shtml" target="_blank"> <img
-                                    src="http://co-image.qichacha.com/CompanyImage/423abb764631d190382c16678af794b5.jpg"
-                                    style="border: solid #eceff0 1px;"> </a></td>
-                            <td class="tp2"><span class="tp2_tit clear"> <a
-                                    href="/firm_423abb764631d190382c16678af794b5.shtml" target="_blank" target="_blank"
-                                    class="text-priamry">浪潮集团有限公司</a> </span>
-                                <small class="text-muted clear"><span class="font-15 text-black m-r">  孙丕恕</span> 企业法人
-                                </small>
-                                <small class="text-muted clear"><span><i class="i i-phone3"></i> 85102510</span> <span
-                                        class="m-l"><i class="fa  fa-envelope-o"></i> zhaoyzh@inspur.com</span></small>
-                                <small class="text-muted clear"><i class="i   i-search"></i>
-                                    专利：一种基于云计算的<em>人</em>机界...
-
-
-                                </small>
-                            </td>
-                            <td class="tp3 text-center">
-                                82121.86万元人民币
-                            </td>
-                            <td class="tp4 text-center">
-                                1989-02-03
-                            </td>
-                            <td class="tp5 text-center"><a href="#"> <span
-                                    class="label list-detail list-success m-l-xs">在业</span> </a></td>
-                        </tr>
-                        <tr class="table-search-list">
-                            <td class="tp1"><a href="/firm_b84da20aa072dd0e9e72cf48cb11437a.shtml" target="_blank"> <img
-                                    src="http://co-image.qichacha.com/CompanyImage/b84da20aa072dd0e9e72cf48cb11437a.jpg"
-                                    style="border: solid #eceff0 1px;"> </a></td>
-                            <td class="tp2"><span class="tp2_tit clear"> <a
-                                    href="/firm_b84da20aa072dd0e9e72cf48cb11437a.shtml" target="_blank" target="_blank"
-                                    class="text-priamry">长城汽车股份有限公司</a> </span>
-                                <small class="text-muted clear"><span class="font-15 text-black m-r">  魏建军</span> 企业法人
-                                </small>
-                                <small class="text-muted clear"><span><i class="i i-phone3"></i> 0312-2197815</span>
-                                    <span class="m-l"><i class="fa  fa-envelope-o"></i> gfgs@gwm.cn</span></small>
-                                <small class="text-muted clear"><i class="i   i-search"></i>
-                                    专利：汽车碰撞试验用儿童假<em>人</em>...
-
-
-                                </small>
-                            </td>
-                            <td class="tp3 text-center">
-                                912726.9万人民币
-                            </td>
-                            <td class="tp4 text-center">
-                                2001-06-12
-                            </td>
-                            <td class="tp5 text-center"><a href="#"> <span
-                                    class="label list-detail list-success m-l-xs">存续</span> </a></td>
-                        </tr>
-                        <tr class="table-search-list">
-                            <td class="tp1"><a href="/firm_127fcf53de2598be86ab1b3cad165cf1.shtml" target="_blank"> <img
-                                    src="http://co-image.qichacha.com/CompanyImage/127fcf53de2598be86ab1b3cad165cf1.jpg"
-                                    style="border: solid #eceff0 1px;"> </a></td>
-                            <td class="tp2"><span class="tp2_tit clear"> <a
-                                    href="/firm_127fcf53de2598be86ab1b3cad165cf1.shtml" target="_blank" target="_blank"
-                                    class="text-priamry">珠海格力电器股份有限公司</a> </span>
-                                <small class="text-muted clear"><span class="font-15 text-black m-r">  董明珠</span> 企业法人
-                                </small>
-                                <small class="text-muted clear"></small>
-                                <small class="text-muted clear"><i class="i   i-search"></i>
-                                    著作权：<em>让</em>世界爱上中国造
-
-
-                                </small>
-                            </td>
-                            <td class="tp3 text-center">
-                                601573.0878万
-                            </td>
-                            <td class="tp4 text-center">
-                                1989-12-13
-                            </td>
-                            <td class="tp5 text-center"><a href="#"> <span
-                                    class="label list-detail list-success m-l-xs">存续</span> </a></td>
-                        </tr>
                         </tbody>
                     </table>
                 </section>
@@ -1529,7 +1323,8 @@
                         </div>
                         <hr style="border-top: 1px solid #111;">
                         <div class="row footer-bottom text-center">
-                            <div class="text-muted m-t-sm"><span><a href="javascript:void(0)" title="乾康快信">@2014-2016</a> <a
+                            <div class="text-muted m-t-sm"><span><a href="javascript:void(0)"
+                                                                    title="乾康快信">@2014-2016</a> <a
                                     href="http://www.miibeian.gov.cn/"
                                     target="_blank"> 苏ICP备15042526号-4	朗动企查查网</a></span></div>
                         </div>

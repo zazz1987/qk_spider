@@ -17,19 +17,43 @@ def index():
 @enterprise.route('/search', methods=['GET'])
 def search():
     key = request.args.get('key')
-    index = request.args.get('index')
-    if not index:
-        result = QueryEnterprise.company_list(query=key)
-        return render_template('enterprise/search.html', data=json.loads(result.text))
-    else:
-        QueryEnterprise.query(key=key, index=index)
-        return render_template('enterprise/search.html')
+    # index = request.args.get('index')
+    page_size = request.args.get('page_size')
+    result = QueryEnterprise.company_list(query=key, page_size=page_size)
+    print(result)
+    return render_template('enterprise/search.html', data=result)
 
 
-@enterprise.route('/result')
+@enterprise.route('/result', methods=['GET'])
 def result():
-    return render_template('enterprise/result.html')
+    enterprise_name = request.args.get('company')
+    result = QueryEnterprise.query_basic(enterprise_name=enterprise_name)
+    print(result)
+    return render_template('enterprise/result.html', data=result)
 
+
+@enterprise.route('/result/annualReport', methods=['GET'])
+def annual_report():
+    enterprise_name = request.args.get('company')
+
+
+@enterprise.route('/result/basicInfo', methods=['GET'])
+def basic_info():
+    enterprise_name = request.args.get('company')
+    result = QueryEnterprise.query_basic(enterprise_name=enterprise_name)
+    return render_template('enterprise/_baseInfo.html', data=result)
+
+
+@enterprise.route('/result/relatedParty', methods=['GET'])
+def related_party():
+    enterprise_name = request.args.get('company')
+    result = QueryEnterprise.query_related_party(enterprise_name=enterprise_name)
+    return render_template('enterprise/_relatedParty.html', data=result)
+
+@enterprise.route('/result/qualifiction ', methods=['GET'])
+def qualifiction():
+    enterprise_name = request.args.get('company')
+    # result = QueryEnterprise.
 
 @enterprise.route('/user/<username>')
 def user(username):

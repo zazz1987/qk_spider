@@ -168,6 +168,61 @@ def process_person_query_last_two_years(identity, report, db_session):
             logger.error(e)
 
 
+def process_open_bank_info(identity,  report, db_session):
+    """
+    个人银行卡信息
+    :param identity:
+    :param report:
+    :param db_session:
+    :return:
+    """
+    select_dict = __get_report_dict(report, 'cisReport/personBankCheckInfo')
+    if select_dict is None:
+        return
+    person = db_session.query(Person).filter_by(identity=identity).first()
+    for node in select_dict['personBankCheckInfo']['item']:
+        bank = BankCard(person)
+        bank.open_name = node['condition']['name']
+        bank.open_identity = node['condition']['documentNo']
+        bank.card_num = node['condition']['accountNo']
+        bank.phone = node['condition']['mobile']
+        bank.bank_name = node['condition']['accountBankName']
+        bank.checked_status = node['status']
+        bank.card_name = node['cardNature']
+        try:
+            db_session.add(bank)
+            db_session.commit()
+        except StatementError as e:
+            logger.error(e)
+
+
+def process_bank_card_records(identity, account, report, db_session):
+    """
+    银行卡交易记录
+    :param identity: 身份证好
+    :param account: 银行帐号
+    :param report: 查询报告
+    :param db_session: 数据库会话
+    :return:
+    """
+    select_dict = __get_report_dict(report, 'cisReport/personCardTransRecordInfo/item')
+    if select_dict is None:
+        return
+    person = db_session.query(Person).filter_by(identity=identity).first()
+    card = db_session.query(BankCard).filter_by(card_num=account, person_id=person.id).first()
+    if card is None:
+        return
+    for node in select_dict:
+        record = MoneyRecord(card)
+        record.transaction_money = node['item']['transAmount']
+        record.transaction_time = node['item']['transDate']
+        record.transaction_type = node['item']['transType']
+        try:
+            db_session.add(record)
+            db_session.commit()
+        except StatementError as e:
+            logger.error(e)
+
 if __name__ == '__main__':
     # app = create_app('testing')
     # app_context = app.app_context()
