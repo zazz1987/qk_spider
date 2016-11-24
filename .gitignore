@@ -94,5 +94,5 @@ ENV/
 app/datasource/config.yml
 *.sqlite
 /*.exe
-/.idea/
+.idea/
 

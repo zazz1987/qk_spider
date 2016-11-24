@@ -113,4 +113,4 @@ class TestPyTransform(TestCase):
     """
         unit = find_company(company, db.session)
         result_dict = json.loads(test_data)
-        update_obj(QkGmpAuth, unit, result_dict, db.session)
+        save_obj(QkGmpAuth, unit, result_dict, db.session)
