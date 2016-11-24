@@ -22,7 +22,7 @@ class FlaskClientTestCase(unittest.TestCase):
         self.app_context.pop()
 
     def test_home_page(self):
-        response = self.client.get(url_for('main index'))
+        response = self.client.get(url_for('main.index'))
         self.assertTrue(b'Stronger' in response.data)
 
     def test_register_and_login(self):

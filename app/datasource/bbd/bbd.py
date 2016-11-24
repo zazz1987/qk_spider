@@ -55,7 +55,7 @@ class BBD(Third):
         return result_final, BBD.source
 
     @classmethod
-    def query_companysearch2(cls, query, page=None, page_size=None):
+    def query_companysearch2(cls, query, page_size=None, page=None):
         url = 'http://dataom.api.bbdservice.com/api/bbd_companysearch2/'
         kwargs = {'type': 'company', 'query': query, 'ak': '0bb874407f472e96a2718649ad686680'}
         result = requests.get(url=url, params=kwargs)

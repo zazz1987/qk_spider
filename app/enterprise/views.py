@@ -18,12 +18,13 @@ def index():
 def search():
     key = request.args.get('key')
     index = request.args.get('index')
+    page_size = request.args.get('page_size')
     if not index:
-        result = QueryEnterprise.company_list(query=key)
-        return render_template('enterprise/search.html', data=json.loads(result.text))
+        result = QueryEnterprise.company_list(query=key, page_size=page_size)
+        return render_template('enterprise/search.html', data=json.loads(result))
     else:
-        QueryEnterprise.query(key=key, index=index)
-        return render_template('enterprise/search.html')
+        result = QueryEnterprise.query(key=key, index=index, page_size=page_size)
+        return render_template('enterprise/search.html', data=json.loads(request))
 
 
 @enterprise.route('/result')
