@@ -1,4 +1,6 @@
-
+#particles-js {
+    background: linear-gradient(to right, rgb(30, 87, 153) 0%, rgb(41, 137, 216) 30%, rgb(32, 124, 202) 63%, rgb(125, 185, 232) 100%);
+}
 .contacts-section {
     color: #fff;
     position: relative;
@@ -32,16 +34,6 @@ i.icon-custom {
 }
 
 
-#search .down-scroll {
-    width: 50px;
-    height: 50px;
-    position: relative;
-    padding: 0 0;
-    margin: -50px auto 0 auto;
-    position: relative;
-    z-index: 11;
-    text-align: center;
-}
 i.icon-down {
     color: #fff;
     width: 40px;

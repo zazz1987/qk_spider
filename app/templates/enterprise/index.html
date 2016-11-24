@@ -64,11 +64,10 @@
     <div class="container">
         <div class="navbar-header"><a class="btn btn-link visible-xs" data-toggle="collapse" data-target="#bs-navbar"
                                       aria-controls="bs-navbar" aria-expanded="false"> <i class="fa fa-bars"></i> </a>
-            <a href="index.htm" class="navbar-brand"> <img src="/static/material/theme/chacha/cms/v2/images/logo4.png"
-                                                           class="m-r-sm" alt="快信"> </a> <a
-                    class="btn btn-link visible-xs" href="user_login.htm"> <i class="fa fa-user"></i> </a></div>
+            <a href="/" class="navbar-brand"> <img src="/static/material/theme/chacha/cms/v2/images/logo4.png"
+                                                   class="m-r-sm" alt="快信"> </a></div>
         <ul class="nav navbar-nav collapse navbar-collapse" id="bs-navbar">
-            <li class="active"><a href="index.htm">首页</a></li>
+            <li class="active"><a href="/">首页</a></li>
             <li class=""><a target="_blank" href="http://www.advisingbank.com">授信评估中心</a></li>
             <li class=""><a target="_blank" href="http://www.qkjr.com.cn">关于乾康</a></li>
             <li class=""><a href="#contact">联系我们</a></li>
@@ -84,8 +83,7 @@
 
     </div>
 </header>
-<div class="jumbotron jumbotron-main" id="home"
-     style="background: #3498db;">
+<div class="jumbotron jumbotron-main" id="home">
     <div id="particles-js"></div><!-- /.particles div -->
     <!-- 更换自己需要的上浮显示内容 -->
     <div class="container center-vertically-holder">
@@ -1409,13 +1407,12 @@
 <div class="fixed-logo  visible-xs"><img class="logo-img" src="/static/material/theme/chacha/cms/v2/images/icon_09.png">
     <div class="logo-title">企业信用查询</div>
     <div class="logo-content">查企业，就上快信</div>
-    <a class="guanzhu"
-       href="javascript:if(confirm(%27http://qichacha.com/weixin?from=news  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://qichacha.com/weixin?from=news%27"
-    ></a></div>
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-     data-backdrop="static">
+    <!--<a class="guanzhu"-->
+       <!--href="http://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIxOTA4MDgwNg==#wechat_redirect"></a></div>-->
+<!--<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"-->
+<!--data-backdrop="static">-->
 
-</div>
+<!--</div>-->
 <script type="text/javascript" src="/static/material/theme/chacha/cms/v2/js/particles.min.js"></script>
 <script type="text/javascript" src="/static/material/theme/chacha/cms/v2/js/particlesRun.js"></script>
 <script type="text/javascript" src="/static/material/theme/chacha/cms/v2/js/jquery.mixitup.js"></script>
@@ -1424,7 +1421,15 @@
 <script>
     /* ---- nav smooth scroll ---- */
     var scrollTag = true;
+    $(window).resize(function() {
+        var back_height = $('#particles-js').height()
+        var content_height = $('.center-vertically-holder').height()
+        $('.center-vertically-holder').css('margin',(back_height-content_height-108)/2+'px auto')
+    });
     $(document).ready(function () {
+        var back_height = $('#particles-js').height()
+        var content_height = $('.center-vertically-holder').height()
+        $('.center-vertically-holder').css('margin',(back_height-content_height-108)/2+'px auto')
         $('.scroll-link').on('click', function (event) {
             event.preventDefault();
             var sectionID = $(this).attr("data-id");
