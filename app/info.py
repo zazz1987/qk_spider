@@ -216,20 +216,28 @@ class BankCard(db.Model):
     __tablename__ = 'bank_card'
     id = db.Column(db.Integer, primary_key=True)
     person_id = db.Column(db.Integer, db.ForeignKey('person.id'))
+    # 开户用户
+    open_name = db.Column(db.String(100))
+    # 开户证号
+    open_identity = db.Column(db.String(18))
     # 银行卡号
-    card_num = db.Column(db.String(20))
+    card_num = db.Column(db.String(50))
     # 开户银行
     bank_name = db.Column(db.String(200))
-    # 卡类型
-    card_class = db.Column(db.String(20))
+    # # 卡类型
+    # card_class = db.Column(db.String(20))
     # 卡种名称
     card_name = db.Column(db.String(20))
-    # 开户行所在省
-    bank_province = db.Column(db.String(20))
-    # 开户行所在城市
-    bank_city = db.Column(db.String(20))
-    # 开户时间
-    open_date = db.Column(db.DateTime)
+    # # 开户行所在省
+    # bank_province = db.Column(db.String(20))
+    # # 开户行所在城市
+    # bank_city = db.Column(db.String(20))
+    # # 开户时间
+    # open_date = db.Column(db.DateTime)
+    # 预留电话
+    phone = db.Column(db.String(20))
+    # 核查状态
+    checked_status = db.Column(db.String(2))
     # 账目流水
     records = db.relationship('MoneyRecord', backref='bank')
 
