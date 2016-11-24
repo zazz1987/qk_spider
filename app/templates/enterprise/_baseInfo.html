@@ -1,0 +1,32 @@
+<section class="panel b-a base_info">
+    <div class="panel-heading b-b"><span class="font-bold font-15 text-dark"> 基本信息</span></div>
+    <div class="panel-body text-sm">
+        <ul class="company-base">
+            <li><label style="width:120px;">统一社会信用代码： </label>{{data.credit_code}}</li>
+            <li><label>注册号： </label>{{data.regno}}</li>
+            <li><label style="width:105px;">组织机构代码： </label>{{data.credit_code}}</li>
+            <li><label>经营状态：</label>{{data.enterprise_status}}</li>
+            <li><label>公司类型：</label>{{data.company_type}}</li>
+            <li><label>成立日期：</label>{{data.esdate}}</li>
+            <li><label>法定代表人：</label>{{data.frname}}</li>
+            <li><label>注册资金：</label>{{data.regcap_amount}}</li>
+            <li><label>营业期限：</label>{{data.openfrom}}-{{data.opento}}</li>
+            <li><label>登记机关：</label>{{data.regorg}}</li>
+            <li><label>发照日期：</label>{{data.approval_date}}</li>
+            <li><label>经营期限：</label>
+                {{data.operating_period}}
+            </li>
+            <li><label>所属行业：</label>
+                {{data.company_industry}}
+            </li>
+            <li><label>英文名：</label>
+                {{data.approval_date}}
+            </li>
+            <li style="width:100%"><label>曾用名： </label> <span>{{data.bbd_history_name}}</span></li>
+            <li class="comp-gen-txarea"><label>企业地址： </label>{{data.address}}</li>
+            <li class="comp-gen-txarea"><label>经营范围：</label>
+                {{data.operate_scope}}
+            </li>
+        </ul>
+    </div>
+</section>
