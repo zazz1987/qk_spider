@@ -55,6 +55,13 @@ class BBD(Third):
         return result_final, BBD.source
 
     @classmethod
+    def query_companysearch2(cls, query, page=None, page_size=None):
+        url = 'http://dataom.api.bbdservice.com/api/bbd_companysearch2/'
+        kwargs = {'type': 'company', 'query': query, 'ak': '0bb874407f472e96a2718649ad686680'}
+        result = requests.get(url=url, params=kwargs)
+        return result
+
+    @classmethod
     def query_qyxx_jbxx(cls, company=None, qyxx_id=None):
         """
         企业工商数据-基本信息(Company与qyxx_id 二选一)
@@ -159,7 +166,6 @@ class BBD(Third):
 
     @classmethod
     def query_rel(cls, company=None, qyxx_id=None):
-        # TODO: 没有找到文档
         """
         关联方
         :param company: 企业名称，精确匹配(key)

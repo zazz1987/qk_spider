@@ -30,16 +30,16 @@ from sqlalchemy.exc import StatementError
 
 
 class Query:
-    data_sources = [Zzc, PengYuan]  # , ChinaUnionPay]
+    data_sources_personal = [Zzc, PengYuan]  # , ChinaUnionPay]
     data_queue = queue.Queue()
 
     def query(self, *args, **kwargs):
         name = kwargs['user_name_cn']
         identity = kwargs['personal_id']
         self.create_person(name, identity)
-        with concurrent.futures.ThreadPoolExecutor(max_workers=len(self.data_sources) * 5) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(Query.data_sources_personal) * 5) as executor:
 
-            future_func = {executor.submit(source().query, *args, **kwargs) for source in self.data_sources}
+            future_func = {executor.submit(source().query, *args, **kwargs) for source in Query.data_sources_personal}
             try:
                 for future in concurrent.futures.as_completed(future_func, 30):
                     try:
